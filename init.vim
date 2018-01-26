@@ -3,36 +3,19 @@ filetype off
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/emmet-vim'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'kien/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-markdown'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
-Plug 'ap/vim-css-color'
-Plug 'scrooloose/syntastic'
-Plug 'einars/js-beautify'
-Plug 'maksimr/vim-jsbeautify'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'scrooloose/nerdtree'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'tomasr/molokai'
-Plug 'tpope/vim-endwise'
-Plug 'elixir-lang/vim-elixir'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'mxw/vim-jsx'
 Plug 'lifepillar/vim-solarized8'
-Plug 'tomasr/molokai'
 Plug 'bling/vim-airline'
-Plug 'Yggdroot/indentLine'
-Plug 'gosukiwi/vim-atom-dark'
 Plug 'godlygeek/tabular'
-Plug 'luochen1990/rainbow'
-Plug 'morhetz/gruvbox'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }
 Plug 'zchee/deoplete-jedi'
 call plug#end()
@@ -146,8 +129,6 @@ endfunction
 vmap <silent> <expr> p <sid>Repl()
 set wrap
 set nofoldenable
-" Syntastic syntax checkers
-let g:syntastic_python_checkers = ['flake8']
 " Show matching brackets
 set showmatch
 " Ignore case when searching
@@ -160,10 +141,6 @@ set linebreak
 set wrap
 " setting ignores for ctrlp
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components'
-" snippets stuff
-let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 " whitespace stuff
 autocmd BufWritePre * :%s/\s\+$//e
 " quick command to create a new file
@@ -185,8 +162,6 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-let g:syntastic_javascript_checkers = ['standard']
-
 let g:python_host_prog='/Users/jake/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog='/Users/jake/.pyenv/versions/neovim3/bin/python'
 " test stuff
@@ -202,7 +177,6 @@ nnoremap <Leader>h :resize -5<CR>
 nnoremap <Leader>qt <C-w><C-w> :q!<CR>
 nnoremap <Leader>rc :e ~/.nvim/init.vim<CR>
 nnoremap <Leader>rct :tabe ~/.nvimrc<CR>
-let g:neoterm_size = 15
 " airline config
 set laststatus=2
 let g:airline_powerline_fonts=1
@@ -230,11 +204,8 @@ endfunction
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " tags stuff
 set tags=./tags,tags;$HOME
-" Rainbow parens
-let g:rainbow_active = 1
-au VimEnter * RainbowToggle
-" extra python syntax stuff
 
+" extra python syntax stuff
 augroup python
     autocmd!
     autocmd FileType python
