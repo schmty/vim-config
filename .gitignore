@@ -1,0 +1,6 @@
+*.swp
+bundle/
+eclim/
+plugged/
+.DS_Store
+.netrwhist
