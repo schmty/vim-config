@@ -167,7 +167,7 @@ let g:python3_host_prog='/home/jake/.pyenv/versions/neovim3/bin/python'
 " test stuff
 let test#strategy = 'neoterm'
 " terminal stuff
-set shell=/usr/local/bin/zsh
+set shell=/usr/bin/zsh
 tnoremap <Leader>ee <C-\><C-n>
 " more leaders
 nnoremap <Leader>te <C-w>s <C-w><C-w> :resize 15<CR> :term<CR>
