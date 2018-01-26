@@ -162,8 +162,8 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-let g:python_host_prog='/Users/jake/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog='/Users/jake/.pyenv/versions/neovim3/bin/python'
+let g:python_host_prog='/home/jake/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog='/home/jake/.pyenv/versions/neovim3/bin/python'
 " test stuff
 let test#strategy = 'neoterm'
 " terminal stuff
@@ -189,7 +189,6 @@ function! SwitchBackground()
   endif
 endfunction
 nnoremap <Leader>sl :call SwitchBackground()<CR>
-let g:python_host_prog = "/usr/local/bin/python2"
 " code folding stuff
 set foldmethod=indent
 set foldnestmax=10
