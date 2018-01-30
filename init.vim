@@ -14,7 +14,8 @@ Plug 'tomasr/molokai'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'mxw/vim-jsx'
 Plug 'lifepillar/vim-solarized8'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }
 Plug 'zchee/deoplete-jedi'
@@ -22,10 +23,23 @@ call plug#end()
 filetype plugin indent on
 syntax on
 set relativenumber
+set nu
 set smartindent
 set termguicolors
-set bg=dark
 color solarized8
+let g:airline_theme='solarized'
+" change color background based on time of day
+let hr = (strftime('%H'))
+if hr >= 19
+  set background=dark
+  let g:airline_solarized_bg='dark'
+elseif hr >= 8
+  set background=light
+  let g:airline_solarized_bg='light'
+elseif hr >= 0
+  set background=dark
+  let g:airline_solarized_bg='dark'
+endif
 let g:gruvbox_contrast="hard"
 set shiftwidth=2
 set tabstop=2
